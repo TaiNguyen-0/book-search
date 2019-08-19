@@ -3,9 +3,10 @@ const router = require("express").Router();
 
 router.get("/recipes", (req, res) => {
   axios
-    .get("http://www.recipepuppy.com/api/", { params: req.query })
+    .get("https://www.googleapis.com/books/v1/volumes?q=", { params: req.query })
     .then(({ data: { results } }) => res.json(results))
     .catch(err => res.status(422).json(err));
+    console.log(results + "google books");
 });
-
+// AIzaSyBXJa6Bfy2vNqBrM2IHaWcxvOoRx2ttkuQ
 module.exports = router;
